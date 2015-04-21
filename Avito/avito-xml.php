@@ -33,7 +33,7 @@ $xml='<?xml version="1.0"?>
       <Ads target="Avito.ru" formatVersion="2">
      ';
 	
-    // Составляем запрос по выбору кода и названия страны из таблицы
+    // Составляем запрос по выборку кода и названия страны из таблиц
     $query = "SELECT `id`, `user_id`,
         `type_id`,
         `topic_id`, (SELECT t.name FROM re_topic AS t WHERE t.id = d.topic_id) AS tname,
@@ -89,7 +89,7 @@ $xml='<?xml version="1.0"?>
            $xml.="\n".'<Description>'.parseToXML($row['text']).'</Description>';
            $xml.="\n".'<ContactPhone>+7 (000) 000-00-00</ContactPhone>';
 
-           //ковертурием валюту от евро в рубл
+           //конвертурием валюту от евро в рубл
            $_price=number_format(($row['price']*63),2,'.', '');
 
            $xml.="\n".'<Price>'.$_price.'</Price>';
